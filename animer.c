@@ -145,9 +145,9 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz].mur0 == 1)
+    if (matrice_case[valeur0][valeurx][valeurz_av].mur0 == 1 || matrice_case[valeur0][valeurx][valeurz_ar].mur0 == 1)
     {
-     xmur = valeurx*COTE;
+      xmur = valeurx*COTE;
     }
     else
       xmur = 10000;
@@ -157,9 +157,9 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz].mur2 == 1)
+    if (matrice_case[valeur0][valeurx][valeurz_av].mur2 == 1 || matrice_case[valeur0][valeurx][valeurz_ar].mur2 == 1)
     {
-     xmur2 = valeurx*COTE + COTE;
+      xmur2 = valeurx*COTE + COTE;
     }
     else
       xmur2 = 10000;
@@ -169,9 +169,9 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz].mur1 == 1)
+    if (matrice_case[valeur0][valeurx_av][valeurz].mur1 == 1 || matrice_case[valeur0][valeurx_ar][valeurz].mur1 == 1)
     {
-     zmur = valeurz*COTE;
+      zmur = valeurz*COTE;
     }
     else
       zmur = 10000;
@@ -181,9 +181,9 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz].mur3 == 1)
+    if (matrice_case[valeur0][valeurx_av][valeurz].mur3 == 1 || matrice_case[valeur0][valeurx_ar][valeurz].mur3 == 1)
     {
-     zmur2 = valeurz*COTE + COTE;
+      zmur2 = valeurz*COTE + COTE;
     }
     else
       zmur2 = 10000;
@@ -193,9 +193,9 @@ void animer(){
 //av
   if (valeurx_av < LIGNE && valeurx_av >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1)
+    if (matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1 || matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1)
     {
-     xmur_av = valeurx_av*COTE;
+      xmur_av = valeurx_av*COTE;
     }
     else
       xmur_av = 10000;
@@ -205,9 +205,9 @@ void animer(){
 
   if (valeurx_av < LIGNE && valeurx_av >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz].mur2 == 1)
+    if (matrice_case[valeur0][valeurx_av][valeurz_av].mur2 == 1 || matrice_case[valeur0][valeurx_av][valeurz_ar].mur2 == 1)
     {
-     xmur2_av = valeurx_av*COTE + COTE;
+      xmur2_av = valeurx_av*COTE + COTE;
     }
     else
       xmur2_av = 10000;
@@ -217,18 +217,22 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz_av < COLONNE && valeurz_av >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz_av].mur1 == 1)
+    if (matrice_case[valeur0][valeurx_av][valeurz_av].mur1 == 1 || matrice_case[valeur0][valeurx_ar][valeurz_av].mur1 == 1)
     {
-     zmur_av = valeurz_av*COTE;
+      zmur_av = valeurz_av*COTE;
     }
+    else
+      zmur_av = 10000;
   }
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz_av < COLONNE && valeurz_av >= 0)
   {
     if (matrice_case[valeur0][valeurx][valeurz_av].mur3 == 1)
     {
-     zmur2_av = valeurz_av*COTE + COTE;
+      zmur2_av = valeurz_av*COTE + COTE;
     }
+    else
+      zmur2_av = 10000;
   }
 //ap
   if (valeurx_ar < LIGNE && valeurx_ar >= 0 && valeurz < COLONNE && valeurz >= 0)
@@ -296,7 +300,7 @@ void animer(){
   {
     if (((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0 && ((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0)
     {*/
-
+/*
   if (((xmur_av - new_x_av) * (xmur_av - A.x_av)) > 0 && ((xmur_ar - new_x_ar) * (xmur_ar - A.x_ar)) > 0)
   {
     if (((xmur2_av - new_x_av) * (xmur2_av - A.x_av)) > 0 && ((xmur2_ar - new_x_ar) * (xmur2_ar - A.x_ar)) > 0)
@@ -306,12 +310,22 @@ void animer(){
       A.x_av = new_x + 5;
     }
   }
+*/
+  if (((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0)
+  {
+    if (((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0 && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0)
+    {
+      A.x = new_x;
+      A.x_ar = new_x - 5;
+      A.x_av = new_x + 5;
+    }
+  }
 
   A.x2 = A.x + (cos1*cos2);
 
-  if (((zmur_av - new_z_av) * (zmur_av - A.z_av)) > 0 && ((zmur_ar - new_z_ar) * (zmur_ar - A.z_ar)) > 0)
+  if (((zmur - new_z_av) * (zmur - A.z_av)) > 0 && ((zmur - new_z_ar) * (zmur - A.z_ar)) > 0)
   {
-    if (((zmur2_av - new_z_av) * (zmur2_av - A.z_av)) > 0 && ((zmur2_ar - new_z_ar) * (zmur2_ar - A.z_ar)) > 0)
+    if (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0)
     {
       A.z = new_z;
       A.z_ar = new_z - 5;
@@ -348,6 +362,8 @@ void animer(){
   {
     enlair = 1;
   }
+
+  printf("position x: %f, position z: %f\n", A.x, A.z);
 
   glutPostRedisplay();
 }
