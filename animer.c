@@ -334,9 +334,15 @@ void animer(){
   {
     if (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0)
     {
-      A.z = new_z;
-      A.z_ar = new_z - 5;
-      A.z_av = new_z + 5;
+      if ((int)new_x_av/COTE == (int)new_x_ar/COTE || matrice_case[0][(int)new_x_av/COTE][(int)new_z_av/COTE].mur0 == 0)
+      {
+        if ((int)new_x_av/COTE == (int)new_x_ar/COTE || matrice_case[0][(int)new_x_ar/COTE][(int)new_z_ar/COTE].mur2 == 0)
+        {
+          A.z = new_z;
+          A.z_ar = new_z - 5;
+          A.z_av = new_z + 5;
+        }
+      }
     }
   }
 
