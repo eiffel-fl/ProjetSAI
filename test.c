@@ -22,10 +22,11 @@ void affichage(){
 int main(int argc, char* argv[]){
 	generer_labyrinthe();
 	chercher_entree(0);
-	
+	A.x = rand() % LIGNE + COTE/2;
+	A.z = rand() % COLONNE + COTE/2;/*
 	A.x = (matrice_case[0][randi][randj].A.x + matrice_case[0][randi][randj].C.x) / 2;
 	A.z = (matrice_case[0][randi][randj].A.z + matrice_case[0][randi][randj].C.z) / 2;
-	
+*/	
 	
 	printf("A %f et %f\n", matrice_case[0][randi][randj].A.x, matrice_case[0][randi][randj].A.z);
 	printf("B %f et %f\n", matrice_case[0][randi][randj].B.x, matrice_case[0][randi][randj].B.z);

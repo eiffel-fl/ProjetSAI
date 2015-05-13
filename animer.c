@@ -191,6 +191,7 @@ void animer(){
   else
     zmur2 = 10000;
 //av
+  /*
   if (valeurx_av < LIGNE && valeurx_av >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
     if (matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1 || matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1)
@@ -265,7 +266,7 @@ void animer(){
     {
      zmur2_ar = valeurz_ar*COTE + COTE;
     }
-  }
+  }*/
 
   /*printf("xmur: %f, xmur2: %f,\nzmur: %f, zmur2: %f\n", xmur, xmur2, zmur, zmur2);
   printf("xmur_av: %f, xmur_ar: %f,\nzmur_av: %f, zmur_ar: %f\n", xmur_av, xmur_ar, zmur_av, zmur_ar);*/
@@ -315,9 +316,15 @@ void animer(){
   {
     if (((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0 && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0)
     {
-      A.x = new_x;
-      A.x_ar = new_x - 5;
-      A.x_av = new_x + 5;
+      if ((int)new_z_av/COTE == (int)new_z_ar/COTE || matrice_case[0][(int)new_x_av/COTE][(int)new_z_av/COTE].mur1 == 0)
+      {
+        if ((int)new_z_av/COTE == (int)new_z_ar/COTE || matrice_case[0][(int)new_x_ar/COTE][(int)new_z_ar/COTE].mur3 == 0)
+        {
+          A.x = new_x;
+          A.x_ar = new_x - 5;
+          A.x_av = new_x + 5;
+        }
+      }
     }
   }
 

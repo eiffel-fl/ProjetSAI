@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include "GL/gl.h"
 #include "GL/glut.h"
-#define ETAGE 5
-#define LIGNE 4
-#define COLONNE 3
+#define ETAGE 2
+#define LIGNE 6
+#define COLONNE 6
 #define COTE 40
 #define PLAFOND 40
 
