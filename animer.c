@@ -139,9 +139,13 @@ void animer(){
   int valeurz = A.z/COTE;
 
   int valeurx_av = A.x_av/COTE;
+  int valeurnew_x_av = new_x_av/COTE;
   int valeurz_av = A.z_av/COTE;
+  int valeurnew_z_av = new_z_av/COTE;
   int valeurx_ar = A.x_ar/COTE;
+  int valeurnew_x_ar = new_x_ar/COTE;
   int valeurz_ar = A.z_ar/COTE;
+  int valeurnew_z_ar = new_z_ar/COTE;
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
@@ -316,9 +320,9 @@ void animer(){
   {
     if (((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0 && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0)
     {
-      if ((int)new_z_av/COTE == (int)new_z_ar/COTE || matrice_case[0][(int)new_x_av/COTE][(int)new_z_av/COTE].mur1 == 0)
+      if (valeurnew_z_av == valeurnew_z_ar || matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur1 == 0)
       {
-        if ((int)new_z_av/COTE == (int)new_z_ar/COTE || matrice_case[0][(int)new_x_ar/COTE][(int)new_z_ar/COTE].mur3 == 0)
+        if (valeurnew_z_av == valeurnew_z_ar || matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0)
         {
           A.x = new_x;
           A.x_ar = new_x - 5;
@@ -334,9 +338,9 @@ void animer(){
   {
     if (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0)
     {
-      if ((int)new_x_av/COTE == (int)new_x_ar/COTE || matrice_case[0][(int)new_x_av/COTE][(int)new_z_av/COTE].mur0 == 0)
+      if (valeurnew_x_av == valeurnew_x_ar || matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur0 == 0)
       {
-        if ((int)new_x_av/COTE == (int)new_x_ar/COTE || matrice_case[0][(int)new_x_ar/COTE][(int)new_z_ar/COTE].mur2 == 0)
+        if (valeurnew_x_av == valeurnew_x_ar || matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0)
         {
           A.z = new_z;
           A.z_ar = new_z - 5;
