@@ -194,161 +194,55 @@ void animer(){
   }
   else
     zmur2 = 10000;
-//av
-  /*
-  if (valeurx_av < LIGNE && valeurx_av >= 0 && valeurz < COLONNE && valeurz >= 0)
+
+
+  y_sol = 0;
+
+
+  int test;
+  if ((((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0) && ((((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0) && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0))
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1 || matrice_case[valeur0][valeurx_av][valeurz].mur0 == 1)
-    {
-      xmur_av = valeurx_av*COTE;
-    }
-    else
-      xmur_av = 10000;
+    test = 1;
   }
   else
-    xmur_av = 10000;
-
-  if (valeurx_av < LIGNE && valeurx_av >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz_av].mur2 == 1 || matrice_case[valeur0][valeurx_av][valeurz_ar].mur2 == 1)
+    test = 0;
+    valeurnew_x_av = valeurx_av;
+    valeurnew_x_ar = valeurx_ar;
+  }
+
+  if ((((zmur - new_z_av) * (zmur - A.z_av)) > 0 && ((zmur - new_z_ar) * (zmur - A.z_ar)) > 0) && (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0))
+  {
+    if (valeurnew_x_av == valeurnew_x_ar || (matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur0 == 0 && matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0))
     {
-      xmur2_av = valeurx_av*COTE + COTE;
+      A.z = new_z;
+      A.z_ar = new_z - 5;
+      A.z_av = new_z + 5;
     }
     else
-      xmur2_av = 10000;
+    {
+      valeurnew_z_av = valeurz_av;
+      valeurnew_z_ar = valeurz_ar;
+    }
   }
   else
-    xmur2_av = 10000;
-
-  if (valeurx < LIGNE && valeurx >= 0 && valeurz_av < COLONNE && valeurz_av >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz_av].mur1 == 1 || matrice_case[valeur0][valeurx_ar][valeurz_av].mur1 == 1)
-    {
-      zmur_av = valeurz_av*COTE;
-    }
-    else
-      zmur_av = 10000;
+    valeurnew_z_av = valeurz_av;
+    valeurnew_z_ar = valeurz_ar;
   }
 
-  if (valeurx < LIGNE && valeurx >= 0 && valeurz_av < COLONNE && valeurz_av >= 0)
+  if (test)
   {
-    if (matrice_case[valeur0][valeurx][valeurz_av].mur3 == 1)
-    {
-      zmur2_av = valeurz_av*COTE + COTE;
-    }
-    else
-      zmur2_av = 10000;
-  }
-//ap
-  if (valeurx_ar < LIGNE && valeurx_ar >= 0 && valeurz < COLONNE && valeurz >= 0)
-  {
-    if (matrice_case[valeur0][valeurx_ar][valeurz].mur0 == 1)
-    {
-     xmur_ar = valeurx_ar*COTE;
-    }
-  }
-
-  if (valeurx_ar < LIGNE && valeurx_ar >= 0 && valeurz < COLONNE && valeurz >= 0)
-  {
-    if (matrice_case[valeur0][valeurx_ar][valeurz].mur2 == 1)
-    {
-     xmur2_ar = valeurx_ar*COTE + COTE;
-    }
-  }
-
-  if (valeurx < LIGNE && valeurx >= 0 && valeurz_ar < COLONNE && valeurz_ar >= 0)
-  {
-    if (matrice_case[valeur0][valeurx][valeurz_ar].mur1 == 1)
-    {
-     zmur_ar = valeurz_ar*COTE;
-    }
-  }
-
-  if (valeurx < LIGNE && valeurx >= 0 && valeurz_ar < COLONNE && valeurz_ar >= 0)
-  {
-    if (matrice_case[valeur0][valeurx][valeurz_ar].mur3 == 1)
-    {
-     zmur2_ar = valeurz_ar*COTE + COTE;
-    }
-  }*/
-
-  /*printf("xmur: %f, xmur2: %f,\nzmur: %f, zmur2: %f\n", xmur, xmur2, zmur, zmur2);
-  printf("xmur_av: %f, xmur_ar: %f,\nzmur_av: %f, zmur_ar: %f\n", xmur_av, xmur_ar, zmur_av, zmur_ar);*/
-  /*
-  printf("xmur_av: %f, xmur2_av: %f,\nzmur_av: %f, zmur2_av: %f\n", xmur_av, xmur2_av, zmur_av, zmur2_av);
-  printf("xmur_ar: %f, xmur2_ar: %f,\nzmur_ar: %f, zmur2_ar: %f\n", xmur_ar, xmur2_ar, zmur_ar, zmur2_ar);*/
-  
-/*
-  if (A.x > COTE*2 && A.x < COTE*3 && A.z > 0 && A.z < PLAFOND)
-  {
-    y_sol = (A.x-COTE*2)*PLAFOND/COTE;
-    y_plaf = y_sol + PLAFOND + A.x - COTE*2 - 5;
-    xmur = COTE*2 + (A.x - COTE*2) - (A.y - y_plaf) + 5;
-  }
-  else if(A.x > COTE*3 && A.x < COTE*4 && A.z > 0 && A.z < COTE && A.y > 50){//On adapte quelques valeur de collision test ici, en fonction de la position du joueur.
-    xmur = COTE*4;
-    y_sol = PLAFOND;
-  }
-  else if(A.x > 0 && A.x < COTE && A.z > 0 && A.z < COTE*2 && A.y > 0){
-    xmur = 0;
-    y_sol = 0;
-  }
-  else
-  {*/
-    y_sol = 0;
-//  }
-
-
-
-/*
-  if (((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0)
-  {
-    if (((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0 && ((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0)
-    {*/
-/*
-  if (((xmur_av - new_x_av) * (xmur_av - A.x_av)) > 0 && ((xmur_ar - new_x_ar) * (xmur_ar - A.x_ar)) > 0)
-  {
-    if (((xmur2_av - new_x_av) * (xmur2_av - A.x_av)) > 0 && ((xmur2_ar - new_x_ar) * (xmur2_ar - A.x_ar)) > 0)
+    if (valeurnew_z_av == valeurnew_z_ar || (matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur1 == 0 && matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0))
     {
       A.x = new_x;
       A.x_ar = new_x - 5;
       A.x_av = new_x + 5;
     }
   }
-*/
-  if (((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0)
-  {
-    if (((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0 && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0)
-    {
-      if (valeurnew_z_av == valeurnew_z_ar || matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur1 == 0)
-      {
-        if (valeurnew_z_av == valeurnew_z_ar || matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0)
-        {
-          A.x = new_x;
-          A.x_ar = new_x - 5;
-          A.x_av = new_x + 5;
-        }
-      }
-    }
-  }
+
 
   A.x2 = A.x + (cos1*cos2);
-
-  if (((zmur - new_z_av) * (zmur - A.z_av)) > 0 && ((zmur - new_z_ar) * (zmur - A.z_ar)) > 0)
-  {
-    if (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0)
-    {
-      if (valeurnew_x_av == valeurnew_x_ar || matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur0 == 0)
-      {
-        if (valeurnew_x_av == valeurnew_x_ar || matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0)
-        {
-          A.z = new_z;
-          A.z_ar = new_z - 5;
-          A.z_av = new_z + 5;
-        }
-      }
-    }
-  }
 
   if (((y_plaf - new_y_ap) * (y_plaf - A.y_ap)) > 0)
   {
