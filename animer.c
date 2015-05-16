@@ -274,7 +274,7 @@ void animer(){
     enlair = 1;
   }
 
-  //printf("position x: %f, position z: %f\n", A.x, A.z);
+  printf("position x: %f, position z: %f\n", A.x, A.z);
 
   glutPostRedisplay();
 }
