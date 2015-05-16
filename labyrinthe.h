@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "GL/gl.h"
 #include "GL/glut.h"
-#define ETAGE 2
+#define ETAGE 10
 #define LIGNE 3
 #define COLONNE 3
 #define COTE 40
