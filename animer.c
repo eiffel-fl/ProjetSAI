@@ -130,13 +130,13 @@ void animer(){
   float new_y = A.y;
   float new_y_ap = A.y_ap;
   new_x += (vitesse * cos1) + (vitesse_s * -sin1);
-  new_x_ar = new_x - 5;
-  new_x_av = new_x + 5;
+  new_x_ar = new_x - ECART;
+  new_x_av = new_x + ECART;
   new_z += (vitesse * sin1) + (vitesse_s * cos1);
-  new_z_ar = new_z - 5;
-  new_z_av = new_z + 5;
+  new_z_ar = new_z - ECART;
+  new_z_av = new_z + ECART;
   new_y += vitesse_v;
-  new_y_ap = new_y + 5;
+  new_y_ap = new_y + ECART;
 
   int valeury = A.y/PLAFOND;
   int valeurx = A.x/COTE;
@@ -219,8 +219,8 @@ void animer(){
     if (valeurnew_x_av == valeurnew_x_ar || (matrice_case[valeury][valeurnew_x_av][valeurnew_z_av].mur0 == 0 && matrice_case[valeury][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0))
     {
       A.z = new_z;
-      A.z_ar = new_z - 5;
-      A.z_av = new_z + 5;
+      A.z_ar = new_z - ECART;
+      A.z_av = new_z + ECART;
     }
     else
     {
@@ -239,8 +239,8 @@ void animer(){
     if (valeurnew_z_av == valeurnew_z_ar || (matrice_case[valeury][valeurnew_x_av][valeurnew_z_av].mur1 == 0 && matrice_case[valeury][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0))
     {
       A.x = new_x;
-      A.x_ar = new_x - 5;
-      A.x_av = new_x + 5;
+      A.x_ar = new_x - ECART;
+      A.x_av = new_x + ECART;
     }
   }
 
@@ -277,7 +277,7 @@ void animer(){
     enlair = 1;
   }
 
-  if (matrice_case[valeury][valeurx][valeurz].entree == 1 && vitesse == 0 && vitesse_s == 0 && te == 1)
+  if (matrice_case[valeury][valeurx][valeurz].entree == 2 && vitesse == 0 && vitesse_s == 0 && te == 1)
   {
     monte = 1;
   }

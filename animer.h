@@ -5,3 +5,4 @@
 #define HAUTEUR_FENETRE 600
 
 void animer();
+void afficher_message();

@@ -7,7 +7,7 @@
 #define COLONNE 3
 #define COTE 40
 #define PLAFOND 50
-#define ECART 
+#define ECART 8
 
 typedef struct s_point{
 	float x;
