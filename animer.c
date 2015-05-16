@@ -118,7 +118,7 @@ void animer(){
   float xmur2_av = 10000;
   float zmur2_ar = 10000;
   float zmur2_av = 10000;
-  static float montage = 0;
+  static float montage;
 
 
   float new_x = A.x;
@@ -291,6 +291,7 @@ void animer(){
   {
     montage = 0;
     monte = 0;
+    y_sol = valeury * PLAFOND;
   }
 
   printf("position x: %f, position z: %f, montage: %f\n", A.x, A.z, montage);
