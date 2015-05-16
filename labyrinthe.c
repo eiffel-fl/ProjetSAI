@@ -321,6 +321,7 @@ void generer_labyrinthe(){
 
 void creer_tube(int type, int x, int y, int z){
   //Rappel des codes: le premier chiffre correspond au mur du bas, le second au mur de gauche,le troisième au mur du haut et le quatrième au mur de droite.
+
   switch(type){
     case 0:
       //pas de mur. code 0000
@@ -375,7 +376,7 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1010:
       //tube couloir, code 1010
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+      creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
 
 
       creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -383,13 +384,13 @@ void creer_tube(int type, int x, int y, int z){
       glColor3f(0, 0, 1);
       creer_face(2, x*COTE, y*PLAFOND, z*COTE);
 
-      glColor3f(1, 0, 0);
+			glColor3f(1, 0, 0);
       creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
       break;
 
     case 101:
       //tube couloir, code 0101
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+      creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
 
 
       creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -602,4 +603,6 @@ void creer_face(int type, float x, float y, float z){
       glVertex3f(x, y, z+COTE);
       break;
   }
+
+  glDisable(GL_TEXTURE_2D);
 }
