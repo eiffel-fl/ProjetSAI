@@ -29,10 +29,12 @@ extern int tl;
 extern int tr;
 extern int tu;
 extern int tb;
+extern int te;
 extern int tsp;
 extern int a;
 
 extern int enlair;   //flags supplémentaire (peut-être qu'il y en aura d'autre)
+extern int monte;
 
 extern float ang;    //ang et ang2 représente respectivement l'angle de vue horizontal et vertical du joueur.
 extern float ang2;

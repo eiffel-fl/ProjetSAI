@@ -11,10 +11,12 @@ int tl = 0;
 int tr = 0;
 int tu = 0;
 int tb = 0;
+int te = 0;
 int tsp = 0;
 int a = 1;
 
 int enlair = 0;   //flags supplémentaire (peut-être qu'il y en aura d'autre)
+int monte = 0;
 
 float ang = 0;    //ang et ang2 représente respectivement l'angle de vue horizontal et vertical du joueur.
 float ang2 = 0;
@@ -91,6 +93,10 @@ void gerer_clavier2(unsigned char touche, int xs, int ys){
   {
     tsp = 0;
   }
+  if (touche == 'e')
+  {
+    te = 0;
+  }
 }
 
 void gerer_clavier(unsigned char touche, int xs, int ys){
@@ -130,6 +136,11 @@ void gerer_clavier(unsigned char touche, int xs, int ys){
 
   if (touche == 'k'){
     tb = 1;
+  }
+
+  if (touche == 'e')
+  {
+    te = 1;
   }
 
   if (touche == 32){

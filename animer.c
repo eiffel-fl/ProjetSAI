@@ -2,58 +2,66 @@
 
 //extern cases matrice_case[LIGNE][ETAGE][COLONNE];
 void animer(){
-  if(tz == 1){
-    if(vitesse <= V_MAX){
-      vitesse += V_ACC;       //si on avance(qu'on appuie sur z, quoi), on augmente la vitesse jusqu'à atteindre la vitesse max.
-    }
-  }
-  else{
-    if(vitesse > 0 && !enlair){
-      vitesse -= V_ACC;
-      if (vitesse < 0)        //sinon, si on est pas en l'air, on décélerre jusqu'à 0.
-      {
-        vitesse = 0;
+  if (!monte)
+  {
+    if(tz == 1){
+      if(vitesse <= V_MAX){
+        vitesse += V_ACC;       //si on avance(qu'on appuie sur z, quoi), on augmente la vitesse jusqu'à atteindre la vitesse max.
       }
     }
-  }
-
-  if(ts == 1){
-    if(vitesse >= -V_MAX)
-      vitesse -= V_ACC;
-  }
-  else{
-    if(vitesse < 0 && !enlair){       //même principe si on recule
-      vitesse += V_ACC;
-      if (vitesse > 0)
-      {
-        vitesse = 0;
+    else{
+      if(vitesse > 0 && !enlair){
+        vitesse -= V_ACC;
+        if (vitesse < 0)        //sinon, si on est pas en l'air, on décélerre jusqu'à 0.
+        {
+          vitesse = 0;
+        }
       }
     }
-  }
 
-  if(td == 1){
-    if(vitesse_s <= V_MAX)
-      vitesse_s += V_ACC;
-  }
-  else{
-    if(vitesse_s > 0 && !enlair)      //même chose, mais pour les pas de coté.
-    {
-      vitesse_s -= V_ACC;
-      if(vitesse_s < 0)
-        vitesse_s = 0;
+    if(ts == 1){
+      if(vitesse >= -V_MAX)
+        vitesse -= V_ACC;
     }
-  }
+    else{
+      if(vitesse < 0 && !enlair){       //même principe si on recule
+        vitesse += V_ACC;
+        if (vitesse > 0)
+        {
+          vitesse = 0;
+        }
+      }
+    }
 
-  if(tq == 1){
-    if(vitesse_s >= -V_MAX)
-      vitesse_s -= V_ACC;
-  }
-  else{
-    if(vitesse_s < 0 && !enlair)      //idem
-    {
-      vitesse_s += V_ACC;
-      if (vitesse_s > 0)
-        vitesse_s = 0;
+    if(td == 1){
+      if(vitesse_s <= V_MAX)
+        vitesse_s += V_ACC;
+    }
+    else{
+      if(vitesse_s > 0 && !enlair)      //même chose, mais pour les pas de coté.
+      {
+        vitesse_s -= V_ACC;
+        if(vitesse_s < 0)
+          vitesse_s = 0;
+      }
+    }
+
+    if(tq == 1){
+      if(vitesse_s >= -V_MAX)
+        vitesse_s -= V_ACC;
+    }
+    else{
+      if(vitesse_s < 0 && !enlair)      //idem
+      {
+        vitesse_s += V_ACC;
+        if (vitesse_s > 0)
+          vitesse_s = 0;
+      }
+    }
+
+    if (tsp == 1 && !enlair){
+      vitesse_v = 0.2;                      //sauter
+      enlair = 1;
     }
   }
 
@@ -87,11 +95,6 @@ void animer(){
     }
   }
 
-  if (tsp == 1 && !enlair){
-    vitesse_v = 0.2;                      //sauter
-    enlair = 1;
-  }
-
   glutWarpPointer(LARGEUR_FENETRE/2, HAUTEUR_FENETRE/2);  //reset la souris au centre de l'écran.
 
   cos1 = cos(ang);
@@ -115,6 +118,7 @@ void animer(){
   float xmur2_av = 10000;
   float zmur2_ar = 10000;
   float zmur2_av = 10000;
+  static float montage = 0;
 
 
   float new_x = A.x;
@@ -134,7 +138,7 @@ void animer(){
   new_y += vitesse_v;
   new_y_ap = new_y + 5;
 
-  int valeur0 = A.y/PLAFOND;
+  int valeury = A.y/PLAFOND;
   int valeurx = A.x/COTE;
   int valeurz = A.z/COTE;
 
@@ -149,7 +153,7 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz_av].mur0 == 1 || matrice_case[valeur0][valeurx][valeurz_ar].mur0 == 1)
+    if (matrice_case[valeury][valeurx][valeurz_av].mur0 == 1 || matrice_case[valeury][valeurx][valeurz_ar].mur0 == 1)
     {
       xmur = valeurx*COTE;
     }
@@ -161,7 +165,7 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx][valeurz_av].mur2 == 1 || matrice_case[valeur0][valeurx][valeurz_ar].mur2 == 1)
+    if (matrice_case[valeury][valeurx][valeurz_av].mur2 == 1 || matrice_case[valeury][valeurx][valeurz_ar].mur2 == 1)
     {
       xmur2 = valeurx*COTE + COTE;
     }
@@ -173,7 +177,7 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz].mur1 == 1 || matrice_case[valeur0][valeurx_ar][valeurz].mur1 == 1)
+    if (matrice_case[valeury][valeurx_av][valeurz].mur1 == 1 || matrice_case[valeury][valeurx_ar][valeurz].mur1 == 1)
     {
       zmur = valeurz*COTE;
     }
@@ -185,7 +189,7 @@ void animer(){
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
-    if (matrice_case[valeur0][valeurx_av][valeurz].mur3 == 1 || matrice_case[valeur0][valeurx_ar][valeurz].mur3 == 1)
+    if (matrice_case[valeury][valeurx_av][valeurz].mur3 == 1 || matrice_case[valeury][valeurx_ar][valeurz].mur3 == 1)
     {
       zmur2 = valeurz*COTE + COTE;
     }
@@ -196,10 +200,9 @@ void animer(){
     zmur2 = 10000;
 
 
-  y_sol = 0;
-
-
   int test;
+
+
   if ((((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0) && ((((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0) && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0))
   {
     test = 1;
@@ -213,7 +216,7 @@ void animer(){
 
   if ((((zmur - new_z_av) * (zmur - A.z_av)) > 0 && ((zmur - new_z_ar) * (zmur - A.z_ar)) > 0) && (((zmur2 - new_z_av) * (zmur2 - A.z_av)) > 0 && ((zmur2 - new_z_ar) * (zmur2 - A.z_ar)) > 0))
   {
-    if (valeurnew_x_av == valeurnew_x_ar || (matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur0 == 0 && matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0))
+    if (valeurnew_x_av == valeurnew_x_ar || (matrice_case[valeury][valeurnew_x_av][valeurnew_z_av].mur0 == 0 && matrice_case[valeury][valeurnew_x_ar][valeurnew_z_ar].mur2 == 0))
     {
       A.z = new_z;
       A.z_ar = new_z - 5;
@@ -233,7 +236,7 @@ void animer(){
 
   if (test)
   {
-    if (valeurnew_z_av == valeurnew_z_ar || (matrice_case[0][valeurnew_x_av][valeurnew_z_av].mur1 == 0 && matrice_case[0][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0))
+    if (valeurnew_z_av == valeurnew_z_ar || (matrice_case[valeury][valeurnew_x_av][valeurnew_z_av].mur1 == 0 && matrice_case[valeury][valeurnew_x_ar][valeurnew_z_ar].mur3 == 0))
     {
       A.x = new_x;
       A.x_ar = new_x - 5;
@@ -274,7 +277,23 @@ void animer(){
     enlair = 1;
   }
 
-  printf("position x: %f, position z: %f\n", A.x, A.z);
+  if (matrice_case[valeury][valeurx][valeurz].entree == 1 && vitesse == 0 && vitesse_s == 0 && te == 1)
+  {
+    monte = 1;
+  }
+
+  if(monte && montage <= PLAFOND)
+  {
+    y_sol += 0.1;
+    montage += 0.1;
+  }
+  else
+  {
+    montage = 0;
+    monte = 0;
+  }
+
+  printf("position x: %f, position z: %f, montage: %f\n", A.x, A.z, montage);
 
   glutPostRedisplay();
 }
