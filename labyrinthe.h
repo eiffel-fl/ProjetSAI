@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include "GL/gl.h"
 #include "GL/glut.h"
-#define ETAGE 2
-#define LIGNE 6
-#define COLONNE 6
+#define ETAGE 3
+#define LIGNE 3
+#define COLONNE 3
 #define COTE 40
 #define PLAFOND 40
 
@@ -19,12 +19,12 @@ typedef struct s_case{
 	point B;
 	point C;
 	point D;
-	
+
 	int mur0;
 	int mur1;
 	int mur2;
 	int mur3;
-	
+
 	int grille;
 	int numero;
 	int entree;
@@ -50,7 +50,7 @@ void chercher_entree(int); //Cherche la case à l'étage spécifiée qui est l'e
 void chercher_sortie(int); //Cherche la case à l'étage spécifiée qui est la sortie
 int case_aleatoire_voisine(); //Tire aléatoirement une case voisine de la case choisie
 void supprimer_mur(int); //Selon le nombre aléatoire renvoyé par case_aleatoire_voisine() on cassera le mur associé
-void mettre_au_numero(int ); //Selon le nombre aléatoire renvoyé par case_aleatoire_voisine on prendra le numero associé 
+void mettre_au_numero(int ); //Selon le nombre aléatoire renvoyé par case_aleatoire_voisine on prendra le numero associé
 void mettre_au_numero_bis(int, int); //Quand on casse un mur, on met au même numéro les 2 cases nouvellement liées mais on propage aussi cette mise au numéro avec les voisines de la voisine
 void generer_etage(); //Algorithme qui générera le labyrinthe aléatoirement
 void generer_labyrinthe();

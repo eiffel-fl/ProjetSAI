@@ -16,7 +16,7 @@ void animer(){
       }
     }
   }
-  
+
   if(ts == 1){
     if(vitesse >= -V_MAX)
       vitesse -= V_ACC;
@@ -30,7 +30,7 @@ void animer(){
       }
     }
   }
-  
+
   if(td == 1){
     if(vitesse_s <= V_MAX)
       vitesse_s += V_ACC;
@@ -43,7 +43,7 @@ void animer(){
         vitesse_s = 0;
     }
   }
-  
+
   if(tq == 1){
     if(vitesse_s >= -V_MAX)
       vitesse_s -= V_ACC;
@@ -274,7 +274,7 @@ void animer(){
     enlair = 1;
   }
 
-  printf("position x: %f, position z: %f\n", A.x, A.z);
+  //printf("position x: %f, position z: %f\n", A.x, A.z);
 
   glutPostRedisplay();
 }
