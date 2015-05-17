@@ -302,6 +302,13 @@ void chercher_sortie(int etage){
 	}
 }
 
+void generer_ascenceur(float x, float y, float z, float montage){
+	glBegin(GL_QUADS);
+	glColor3f(0.3, 0.3, 0.3);
+	creer_face(3, x, y + montage, z);
+	glEnd();
+}
+
 void generer_labyrinthe(){
 	y = 0;
 

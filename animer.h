@@ -4,5 +4,7 @@
 #define LARGEUR_FENETRE 800
 #define HAUTEUR_FENETRE 600
 
+float montage;
+
 void animer();
 void afficher_message();

@@ -9,7 +9,6 @@ float ambientLight[4] = {0.05,0.05,0.05,1};
 int MatSpec [4] = {1,1,1,1};
 
 void affichage(){
-
 	LightPos[0] = A.x2;
 	LightPos[1] = A.y2;
 	LightPos[2] = A.z2;
@@ -25,8 +24,9 @@ void affichage(){
 	glEnable(GL_COLOR_MATERIAL);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
 
 	glLightfv(GL_LIGHT0,GL_POSITION,LightPos);
 	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, LightDir);
@@ -39,10 +39,32 @@ void affichage(){
   glFrustum(-4, 4, -3, 3, 5, 1000);
   gluLookAt(A.x, A.y, A.z, A.x2, A.y2, A.z2, 0, 1, 0);
 
-  afficher_labyrinthe3D();
+
+	afficher_labyrinthe3D();
+
+	extern int monte;
+	extern float montage;
+	int cx;
+	int cy;
+	int cz;
+
+	if (monte)
+	{
+		cx = A.x/COTE;
+		cz = A.z/COTE;
+		cy = A.y/PLAFOND;
+		if (matrice_case[cy][cx][cz].entree == 1)
+		{
+			generer_ascenceur(cx * COTE, cy * PLAFOND - PLAFOND, cz * COTE, montage);
+		}
+		else
+		{
+			generer_ascenceur(cx * COTE, cy * PLAFOND, cz * COTE, montage);
+		}
+	}
 
 	glutIdleFunc(animer);
-  glFlush ();
+	glFlush ();
 }
 
 int main(int argc, char* argv[]){
@@ -53,10 +75,10 @@ int main(int argc, char* argv[]){
 	A.z = randj * COTE + COTE/2;
 
 	glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE | GLUT_DEPTH);
 
-  glutInitWindowSize(800, 600);
-  glutInitWindowPosition(50, 50);
+	glutInitWindowSize(800, 600);
+	glutInitWindowPosition(50, 50);
 
   glutCreateWindow("Labyrinthe");
   glEnable(GL_DEPTH_TEST);
@@ -64,13 +86,14 @@ int main(int argc, char* argv[]){
 	glEnable(GL_LIGHT0);
   glutSetCursor(GLUT_CURSOR_NONE);
 
-  glutKeyboardFunc(gerer_clavier);
-  glutKeyboardUpFunc(gerer_clavier2);
-  glutMotionFunc(souris);
-  glutPassiveMotionFunc(souris);
-  glutDisplayFunc(affichage);
 
-  glutMainLoop();
+	glutKeyboardFunc(gerer_clavier);
+	glutKeyboardUpFunc(gerer_clavier2);
+	glutMotionFunc(souris);
+	glutPassiveMotionFunc(souris);
+	glutDisplayFunc(affichage);
+
+	glutMainLoop();
 
 	return 1;
 }

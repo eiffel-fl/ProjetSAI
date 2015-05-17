@@ -54,6 +54,7 @@ void supprimer_mur(int); //Selon le nombre aléatoire renvoyé par case_aleatoir
 void mettre_au_numero(int ); //Selon le nombre aléatoire renvoyé par case_aleatoire_voisine on prendra le numero associé
 void mettre_au_numero_bis(int, int); //Quand on casse un mur, on met au même numéro les 2 cases nouvellement liées mais on propage aussi cette mise au numéro avec les voisines de la voisine
 void generer_etage(); //Algorithme qui générera le labyrinthe aléatoirement
+void generer_ascenceur(float x, float y, float z, float montage);
 void generer_labyrinthe();
 void creer_tube(int type, int x, int y, int z);
 void creer_face(int type, float x, float y, float z);
