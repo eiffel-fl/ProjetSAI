@@ -118,7 +118,7 @@ void animer(){
   float xmur2_av = 10000;
   float zmur2_ar = 10000;
   float zmur2_av = 10000;
-  static float montage;
+  
 
 
   float new_x = A.x;
@@ -150,6 +150,9 @@ void animer(){
   int valeurnew_x_ar = new_x_ar/COTE;
   int valeurz_ar = A.z_ar/COTE;
   int valeurnew_z_ar = new_z_ar/COTE;
+
+  int test;
+  static int test2 = 0;
 
   if (valeurx < LIGNE && valeurx >= 0 && valeurz < COLONNE && valeurz >= 0)
   {
@@ -199,8 +202,6 @@ void animer(){
   else
     zmur2 = 10000;
 
-
-  int test;
 
 
   if ((((xmur - new_x_av) * (xmur - A.x_av)) > 0 && ((xmur - new_x_ar) * (xmur - A.x_ar)) > 0) && ((((xmur2 - new_x_ar) * (xmur2 - A.x_ar)) > 0) && ((xmur2 - new_x_av) * (xmur2 - A.x_av)) > 0))
@@ -280,6 +281,13 @@ void animer(){
   if (matrice_case[valeury][valeurx_ar][valeurz_ar].entree == 2 && matrice_case[valeury][valeurx_av][valeurz_av].entree == 2 && vitesse == 0 && vitesse_s == 0 && te == 1)
   {
     monte = 1;
+    test2 = 1;
+  }
+
+  if (test2 && !monte)
+  {
+    matrice_case[valeury][valeurx][valeurz].entree = 0;
+    test2 = 0;
   }
 
   if(monte && montage <= PLAFOND)
