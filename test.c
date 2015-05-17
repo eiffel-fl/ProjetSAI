@@ -3,10 +3,13 @@
 float yu = 30;
 extern joueur A;
 
+float MatSpec[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+float MatDif[4] = {1.0f, 1.0f, 1.0f, 1.0f};
 float LightPos[4];
 float LightDir[3];
-float ambientLight[4] = {0.05,0.05,0.05,1};
-int MatSpec [4] = {1,1,1,1};
+float ambientLight[4] = {0.025,0.025,0.025,1};
+float Light1Dif[4] = {0.5f, 0.5f, 0.5f, 1.0f};
+float Light1Spec[4] = {0.8f, 0.8f, 0.8f, 1.0f};
 
 void affichage(){
 	LightPos[0] = A.x2;
@@ -18,23 +21,24 @@ void affichage(){
 	LightDir[1] = A.y2 - A.y;
 	LightDir[2] = A.z2 - A.z;
 
-	glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
-	glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,100);
+	glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);	glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,MatDif);
 
 	glEnable(GL_COLOR_MATERIAL);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, Light1Dif); 	//Et ceux de la lumière
+	glLightfv(GL_LIGHT0, GL_SPECULAR, Light1Spec);
 
 	glLightfv(GL_LIGHT0,GL_POSITION,LightPos);
 	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, LightDir);
 
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
 
-	glLighti(GL_LIGHT0, GL_SPOT_CUTOFF, 15);
-	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.3);
+	glLighti(GL_LIGHT0, GL_SPOT_CUTOFF, 5);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 30);
 	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
   glFrustum(-4, 4, -3, 3, 5, 1000);
   gluLookAt(A.x, A.y, A.z, A.x2, A.y2, A.z2, 0, 1, 0);

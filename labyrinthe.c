@@ -305,7 +305,7 @@ void chercher_sortie(int etage){
 void generer_ascenceur(float x, float y, float z, float montage){
 	glBegin(GL_QUADS);
 	glColor3f(0.3, 0.3, 0.3);
-	creer_face(3, x, y + montage, z);
+	creer_face(3, x, y + montage, z, 1);
 	glEnd();
 }
 
@@ -329,241 +329,241 @@ void creer_tube(int type, int x, int y, int z){
     case 0:
       //pas de mur. code 0000
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 1000:
 			//un seul mur. code 1000
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 100:
       //un seul mur. code 0100
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 10:
       //un seul mur. code 0010
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 1:
       //un seul mur. code 0001
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
 			glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
       break;
 
     case 1010:
       //tube couloir, code 1010
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
 			glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
 
 			glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 101:
       //tube couloir, code 0101
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
       break;
 
     case 1100:
       //couloir tournant. accès: z, x. code: 1100
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 11:
       //couloir tournant. accès: -z, -x. code 0011
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, 1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 110:
       //couloir tournant. accès: -z, x. code 0110
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 1001:
       //couloir tournant. accès: z, -x. code 1001
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 1111:
       //Que des murs. code 1111
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 111:
       //trois murs, accès -z. code 0111
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 1011:
       //trois murs, accès -x. code 1011
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 1101:
       //trois murs, accès z. code 1101
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE+COTE-0.001, y*PLAFOND, z*COTE, -1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
       break;
 
     case 1110:
       //trois murs, accès x. code 1110
 			if(matrice_case[y][x][z].entree != 2)
-				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE, -1);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
-				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
+				creer_face(3, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 1, 0);
-      creer_face(1, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(1, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0, 0, 1);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(1, 0, 0);
-      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(2, x*COTE, y*PLAFOND, z*COTE+COTE-0.001, -1);
       break;
 
     case 111111:
@@ -571,13 +571,13 @@ void creer_tube(int type, int x, int y, int z){
       //creer_face(5, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
 
 
-      creer_face(5, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(5, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(4, x*COTE, y*PLAFOND, z*COTE);
+      creer_face(4, x*COTE, y*PLAFOND, z*COTE, 1);
 
       glColor3f(0.1, 0.1, 0.1);
-      creer_face(4, x*COTE, y*PLAFOND, z*COTE+COTE-0.001);
+      creer_face(4, x*COTE, y*PLAFOND, z*COTE+COTE-0.001 ,1);
       break;
 
     default:
@@ -586,14 +586,14 @@ void creer_tube(int type, int x, int y, int z){
   }
 }
 
-void creer_face(int type, float x, float y, float z){
+void creer_face(int type, float x, float y, float z, int sens){
 	float V1x, V1y, V1z;
 	float V2x, V2y, V2z;
 	float nx, ny, nz;
 
   switch(type){
     case 1:                                 //Face sur l'axe des x.
-			glNormal3f(-1, 0, 0);
+			glNormal3f(1 * sens, 0, 0);
 			glVertex3f(x, y+PLAFOND, z);
 			glVertex3f(x, y+PLAFOND, z+COTE);
 			glVertex3f(x, y, z+COTE);
@@ -601,7 +601,7 @@ void creer_face(int type, float x, float y, float z){
       break;
 
     case 2:                                 //Face sur l'axe des z.
-			glNormal3f(0, 0, -1);
+			glNormal3f(0, 0, 1 * sens);
 			glVertex3f(x, y+PLAFOND, z);
 			glVertex3f(x+COTE, y+PLAFOND, z);
 			glVertex3f(x+COTE, y, z);
@@ -609,7 +609,7 @@ void creer_face(int type, float x, float y, float z){
       break;
 
     case 3:                                 //Face sur l'axe des y.
-			glNormal3f(0.0f, 1.0f, 0.0f);
+			glNormal3f(0.0f, 1.0f * sens, 0.0f);
 			glVertex3f(x+COTE, y, z+COTE);
 			glVertex3f(x+COTE, y, z);
 			glVertex3f(x, y, z);

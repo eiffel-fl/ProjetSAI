@@ -57,4 +57,4 @@ void generer_etage(); //Algorithme qui générera le labyrinthe aléatoirement
 void generer_ascenceur(float x, float y, float z, float montage);
 void generer_labyrinthe();
 void creer_tube(int type, int x, int y, int z);
-void creer_face(int type, float x, float y, float z);
+void creer_face(int type, float x, float y, float z, int sens);
