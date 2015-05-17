@@ -321,15 +321,17 @@ void creer_tube(int type, int x, int y, int z){
   switch(type){
     case 0:
       //pas de mur. code 0000
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
       break;
 
     case 1000:
-      //un seul mur. code 1000
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			//un seul mur. code 1000
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -340,7 +342,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 100:
       //un seul mur. code 0100
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -351,7 +354,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 10:
       //un seul mur. code 0010
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -362,7 +366,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1:
       //un seul mur. code 0001
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -373,7 +378,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1010:
       //tube couloir, code 1010
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -387,7 +393,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 101:
       //tube couloir, code 0101
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -401,7 +408,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1100:
       //couloir tournant. accès: z, x. code: 1100
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -415,7 +423,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 11:
       //couloir tournant. accès: -z, -x. code 0011
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -429,7 +438,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 110:
       //couloir tournant. accès: -z, x. code 0110
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -443,7 +453,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1001:
       //couloir tournant. accès: z, -x. code 1001
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -457,7 +468,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1111:
       //Que des murs. code 1111
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -477,7 +489,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 111:
       //trois murs, accès -z. code 0111
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -494,7 +507,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1011:
       //trois murs, accès -x. code 1011
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -511,7 +525,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1101:
       //trois murs, accès z. code 1101
-      //creer_face(3, x*COTE, y*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -528,7 +543,8 @@ void creer_tube(int type, int x, int y, int z){
 
     case 1110:
       //trois murs, accès x. code 1110
-      //creer_face(3, x*COTE, y*PLAFOND*PLAFOND+PLAFOND, z*COTE);
+			if(matrice_case[y][x][z].entree != 2)
+				creer_face(3, x*COTE, y*PLAFOND+PLAFOND-0.001, z*COTE);
 
 			if(matrice_case[y][x][z].entree != 1 || y == 0)
 				creer_face(3, x*COTE, y*PLAFOND, z*COTE);
@@ -564,26 +580,32 @@ void creer_tube(int type, int x, int y, int z){
 }
 
 void creer_face(int type, float x, float y, float z){
+	float V1x, V1y, V1z;
+	float V2x, V2y, V2z;
+	float nx, ny, nz;
 
   switch(type){
     case 1:                                 //Face sur l'axe des x.
-      glVertex3f(x, y+PLAFOND, z);
-      glVertex3f(x, y+PLAFOND, z+COTE);
-      glVertex3f(x, y, z+COTE);
+			glNormal3f(-1, 0, 0);
+			glVertex3f(x, y+PLAFOND, z);
+			glVertex3f(x, y+PLAFOND, z+COTE);
+			glVertex3f(x, y, z+COTE);
       glVertex3f(x, y, z);
       break;
 
     case 2:                                 //Face sur l'axe des z.
-      glVertex3f(x, y+PLAFOND, z);
-      glVertex3f(x+COTE, y+PLAFOND, z);
-      glVertex3f(x+COTE, y, z);
+			glNormal3f(0, 0, -1);
+			glVertex3f(x, y+PLAFOND, z);
+			glVertex3f(x+COTE, y+PLAFOND, z);
+			glVertex3f(x+COTE, y, z);
       glVertex3f(x, y, z);
       break;
 
     case 3:                                 //Face sur l'axe des y.
-      glVertex3f(x+COTE, y, z+COTE);
-      glVertex3f(x+COTE, y, z);
-      glVertex3f(x, y, z);
+			glNormal3f(0.0f, 1.0f, 0.0f);
+			glVertex3f(x+COTE, y, z+COTE);
+			glVertex3f(x+COTE, y, z);
+			glVertex3f(x, y, z);
       glVertex3f(x, y, z+COTE);
       break;
 

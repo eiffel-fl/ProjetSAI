@@ -53,7 +53,7 @@ void souris(int x_s, int y_s){
   if (ang2 > ((ANGLE_MAX-20)/2) * M_PI/ANGLE_MAX)
   {
     ang2 = ((ANGLE_MAX-20)/2) * M_PI/ANGLE_MAX;
-  }  
+  }
 }
 
 void gerer_clavier2(unsigned char touche, int xs, int ys){

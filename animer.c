@@ -293,7 +293,7 @@ void animer(){
     monte = 0;
   }
 
-  printf("position x: %f, position z: %f, montage: %f\n", A.x, A.z, montage);
+  //printf("position x: %f, position z: %f, montage: %f\n", A.x, A.z, montage);
 
   glutPostRedisplay();
 }
