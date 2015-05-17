@@ -277,7 +277,7 @@ void animer(){
     enlair = 1;
   }
 
-  if (matrice_case[valeury][valeurx][valeurz].entree == 2 && vitesse == 0 && vitesse_s == 0 && te == 1)
+  if (matrice_case[valeury][valeurx_ar][valeurz_ar].entree == 2 && matrice_case[valeury][valeurx_av][valeurz_av].entree == 2 && vitesse == 0 && vitesse_s == 0 && te == 1)
   {
     monte = 1;
   }
