@@ -100,7 +100,7 @@ void gerer_clavier2(unsigned char touche, int xs, int ys){
 }
 
 void gerer_clavier(unsigned char touche, int xs, int ys){
-	printf("Touche: %c   Souris: %d %d \n", touche, xs, ys);
+	//printf("Touche: %c   Souris: %d %d \n", touche, xs, ys);
   if(touche == 'a')
   {
     a = 1 - a;

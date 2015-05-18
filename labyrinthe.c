@@ -6,10 +6,10 @@ void afficher_labyrinthe(){
 	int i;
 	int j;
 
-	printf("ETAGE %d\n", numero_etage);
+	//printf("ETAGE %d\n", numero_etage);
 	for(i = 0; i < LIGNE; i++){
 		for(j = 0; j < COLONNE; j++){
-			printf("%d-%d ",matrice_case[numero_etage][i][j].numero, matrice_case[numero_etage][i][j].grille);
+			//printf("%d-%d ",matrice_case[numero_etage][i][j].numero, matrice_case[numero_etage][i][j].grille);
 		}
 		printf("\n");
 	}
@@ -178,7 +178,7 @@ void supprimer_mur(int r){
 				matrice_case[numero_etage][randi - 1][randj].mur2 = 0;
 			}
 			else{
-				printf("mur0 déjà cassé\n");
+				//printf("mur0 déjà cassé\n");
 			}
 			break;
 		case 1:
@@ -187,7 +187,7 @@ void supprimer_mur(int r){
 				matrice_case[numero_etage][randi][randj - 1].mur3 = 0;
 			}
 			else{
-				printf("mur1 déjà cassé\n");
+				//printf("mur1 déjà cassé\n");
 			}
 			break;
 		case 2:
@@ -196,7 +196,7 @@ void supprimer_mur(int r){
 				matrice_case[numero_etage][randi + 1][randj].mur0 = 0;
 			}
 			else{
-				printf("mur2 déjà cassé\n");
+				//printf("mur2 déjà cassé\n");
 			}
 			break;
 		case 3:
@@ -205,7 +205,7 @@ void supprimer_mur(int r){
 				matrice_case[numero_etage][randi][randj + 1].mur1 = 0;
 			}
 			else{
-				printf("mur3 déjà cassé\n");
+				//printf("mur3 déjà cassé\n");
 			}
 			break;
 	}

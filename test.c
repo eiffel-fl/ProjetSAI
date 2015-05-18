@@ -7,7 +7,7 @@ float MatSpec[4] = {1.0f, 1.0f, 1.0f, 1.0f};
 float MatDif[4] = {1.0f, 1.0f, 1.0f, 1.0f};
 float LightPos[4];
 float LightDir[3];
-float ambientLight[4] = {0.025,0.025,0.025,1};
+float ambientLight[4] = {1.025,1.025,1.025,1};
 float Light1Dif[4] = {0.5f, 0.5f, 0.5f, 1.0f};
 float Light1Spec[4] = {0.8f, 0.8f, 0.8f, 1.0f};
 
@@ -72,6 +72,13 @@ void affichage(){
 }
 
 int main(int argc, char* argv[]){
+	printf("Pour jouer :\n");
+	printf("\tUtiliser les touches Z, Q, S et D pour vous déplacer\n");
+	printf("\tUtiliser la touche Espace pour sauter\n");
+	printf("\tUtiliser la touche E tout en étant sur une case rose pour passer à l'étage supérieur\n");
+	printf("\tVous avez une lampe torche qui s'active automatiquement si vous regardez dans un coin\n");
+	printf("Votre but sera d'atteindre le dernier ascenseur du labyrinthe afin d'en sortir\n");
+
 	generer_labyrinthe();
 	chercher_entree(0);
 

@@ -1,4 +1,6 @@
 #include "animer.h"
+#include <string.h>
+#include <unistd.h>
 
 //extern cases matrice_case[LIGNE][ETAGE][COLONNE];
 void animer(){
@@ -118,7 +120,7 @@ void animer(){
   float xmur2_av = 10000;
   float zmur2_ar = 10000;
   float zmur2_av = 10000;
-  
+
 
 
   float new_x = A.x;
@@ -292,6 +294,27 @@ void animer(){
 
   if(monte && montage <= PLAFOND)
   {
+		if(y_sol > (21 + PLAFOND * (ETAGE - 1))){
+			glDisable(GL_DEPTH_TEST);
+			glClearColor ( 0., 0., 0., 0. );
+			glLoadIdentity();
+			glOrtho(-4,  4, -3, 3, 0, 1.0);
+			glRasterPos2f( 0, 0);
+
+			glClear(GL_COLOR_BUFFER_BIT);
+			printf("lèl\n");
+			char txt[] = "Bravo ! Vous etes sorti du labyrinthe !";
+
+			int len = (int) strlen(txt);
+			int i;
+
+			for (i = 0; i < len; i++){
+				glutBitmapCharacter( GLUT_BITMAP_HELVETICA_18, txt[i] );
+			}
+			glFlush();
+			sleep(8);
+			exit(1);
+		}
     y_sol += 0.1;
     montage += 0.1;
   }

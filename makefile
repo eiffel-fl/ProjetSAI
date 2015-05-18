@@ -5,7 +5,7 @@ EXEC = test clean_o
 all : $(EXEC)
 
 test : animer interaction labyrinthe
-	$(CC) test.c labyrinthe.o animer.o interaction.o $(CFLAGS) -o test
+	$(CC) test.c labyrinthe.o animer.o interaction.o $(CFLAGS) -o jeu
 
 animer : interaction
 	$(CC) animer.c -c $(CFLAGS)
@@ -20,4 +20,4 @@ clean_o :
 	rm -rf *.o
 
 clean_exe :
-	rm -rf test
+	rm -rf jeu
